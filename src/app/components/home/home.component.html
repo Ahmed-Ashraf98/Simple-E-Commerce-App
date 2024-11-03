@@ -1,44 +1,49 @@
 <div class="min-vh-100">
   <div class="container">
-    <div class="content-wrapper mt-5">
+    <div class="content-wrapper mt-5 position-relative">
       @if (!isLoading) {
-      <div class="row gy-3 gx-0 gx-sm-4">
-        @for (product of productsList; track product.id) {
-        <div class="col-12 col-sm-5 col-md-4 col-lg-3 text-center">
-          <div class="custom-card">
-            <div class="custom-card-img">
-              <img [src]="product.image" [alt]="product.title" />
-            </div>
-            <div class="custom-card-body">
-              @if (product.title.length > 20 ) {
-              <span>{{ product.title.substr(0, 20) }}...</span>
-              }@else {
-              <span>{{ product.title }}</span>
-              }
-
-              <ul class="list-unstyled d-flex justify-content-between p-2">
-                <li class="fw-bold">{{ product.price }}$</li>
-                <li>
-                  <i class="fa-solid fa-star pe-1"></i
-                  >{{ product.rating?.rate }}
-                </li>
-              </ul>
-            </div>
-            <div class="card-overlay">
-              <a
-                id="viewProductDetails"
-                (click)="displayProductDetails(product.id)"
-                class="position-relative bg-white rounded rounded-2 text-dark d-inline-block w-25"
-              >
-                <i class="fa-solid fa-eye fs-3"></i>
-              </a>
-            </div>
-          </div>
-        </div>
+      <app-main-carousel></app-main-carousel>
+      <p class="text-center m-5">Discover your favorite products by category</p>
+      <div
+        class="categories-box d-flex justify-content-center align-items-center flex-wrap mt-2"
+      >
+        @for (category of categoriesList; track $index) {
+        <span
+          (click)="displayCategoryProducts(category)"
+          class="badge text-bg-primary mt-2 mt-lg-0 me-2 p-3"
+          >{{ category.substring(0, 1).toUpperCase()
+          }}{{ category.substring(1) }}</span
+        >
         }
       </div>
 
-      }@else { }
+      <div class="search-box mt-5">
+        <input
+          class="form-control w-50 m-auto"
+          type="text"
+          [(ngModel)]="searchText"
+          placeholder="Search Product"
+        />
+      </div>
+
+      <div class="row gy-3 gx-0 gx-sm-4 mt-3">
+        @for (product of productsList | customSearch : searchText : searchKey;
+        track product.id) {
+        <app-product-card
+          class="col-12 col-sm-5 col-md-4 col-lg-3 text-center"
+          [product]="product"
+        ></app-product-card>
+
+        }
+      </div>
+
+      } @else {
+      <div
+        class="min-vh-100 d-flex flex-column justify-content-center align-items-center"
+      >
+        <app-loader></app-loader>
+      </div>
+      }
     </div>
   </div>
 </div>

@@ -1,0 +1,28 @@
+<div class="custom-card">
+  <div class="custom-card-img">
+    <img [src]="product.image" [alt]="product.title" />
+  </div>
+  <div class="custom-card-body">
+    @if (product.title.length > 20 ) {
+    <span>{{ product.title.substr(0, 20) }}...</span>
+    }@else {
+    <span>{{ product.title }}</span>
+    }
+
+    <ul class="list-unstyled d-flex justify-content-between p-2">
+      <li class="fw-bold">{{ product.price }}$</li>
+      <li><i class="fa-solid fa-star pe-1"></i>{{ product.rating?.rate }}</li>
+    </ul>
+  </div>
+  <div class="card-overlay">
+    <a
+      id="viewProductDetails"
+      (click)="displayProductDetails(product.id)"
+      class="position-relative bg-white rounded rounded-2 text-dark d-inline-block w-25"
+    >
+      <i class="fa-solid fa-eye fs-3"></i>
+    </a>
+  </div>
+</div>
+
+<!-- (click)="func(product.id)" -->

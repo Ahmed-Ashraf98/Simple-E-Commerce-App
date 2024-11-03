@@ -9,6 +9,6 @@ export class CategoriesService {
   private readonly _httpClient = inject(HttpClient);
 
   getAllCategories() {
-    return this._httpClient.get(`${baseUrl}categories`);
+    return this._httpClient.get(`${baseUrl}products/categories`);
   }
 }

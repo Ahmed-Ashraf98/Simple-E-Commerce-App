@@ -1,11 +1,12 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { ProductsService } from '../../core/services/products.service';
 import { Product } from '../../core/interfaces/product.interface';
+import { LoaderComponent } from '../../shared/ui/loader/loader.component';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [],
+  imports: [LoaderComponent],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.scss',
 })

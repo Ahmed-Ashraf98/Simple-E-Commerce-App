@@ -1,0 +1,29 @@
+<div class="min-vh-100">
+  <div class="container">
+    <div class="content-wrapper mt-5 position-relative">
+      @if (!isLoading) {
+
+      <h3 class="text-center">
+        Products of {{ name.substring(0, 1).toUpperCase()
+        }}{{ name.substring(1) }} Category
+      </h3>
+
+      <div class="row gy-3 gx-0 gx-sm-4 mt-3">
+        @for (product of productsList; track product.id) {
+        <app-product-card
+          class="col-12 col-sm-5 col-md-4 col-lg-3 text-center"
+          [product]="product"
+        ></app-product-card>
+
+        }
+      </div>
+      } @else {
+      <div
+        class="min-vh-100 d-flex flex-column justify-content-center align-items-center"
+      >
+        <app-loader></app-loader>
+      </div>
+      }
+    </div>
+  </div>
+</div>
