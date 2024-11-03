@@ -1,0 +1,12 @@
+.product-info {
+  & .left-side img {
+    max-width: 100%;
+  }
+
+  & .right-side {
+    & .fa-icons,
+    .fa-coins {
+      color: rgb(49, 107, 155);
+    }
+  }
+}

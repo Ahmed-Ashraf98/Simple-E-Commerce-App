@@ -1,0 +1,57 @@
+.custom-card {
+  position: relative;
+  height: 300px;
+  // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 20px;
+  border: 2px solid rgb(49, 107, 155);
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.custom-card:hover {
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+  transform: translateY(-5px);
+  & .custom-card-img img {
+    transform: scale(1.1);
+  }
+  .card-overlay {
+    top: 0;
+  }
+}
+
+.custom-card-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid lightgray;
+  height: 200px;
+  & img {
+    padding: 20px 0;
+    width: 100px;
+    transition: all 0.3s;
+  }
+}
+
+.custom-card-body {
+  padding: 10px;
+  background-color: rgba(240, 239, 239, 0.699);
+}
+
+.card-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 110%;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(16, 16, 17, 0.4);
+  transition: all 0.7s;
+}
+
+#viewProductDetails {
+  cursor: pointer;
+}

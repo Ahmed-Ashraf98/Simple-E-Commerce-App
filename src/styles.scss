@@ -1,4 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Importing Bootstrap SCSS file. */
-@import 'bootstrap/scss/bootstrap';
+@import "bootstrap/scss/bootstrap";
+@import "ngx-owl-carousel-o/lib/styles/scss/owl.carousel";
+@import "ngx-owl-carousel-o/lib/styles/scss/owl.theme.default";
+
+@font-face {
+  font-family: Rubik;
+  src: url("/assets/fonts/Rubik-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Rubik;
+  src: url("/assets/fonts/Rubik-Medium.ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: Rubik;
+  src: url("/assets/fonts/Rubik-Bold.ttf");
+  font-weight: 700;
+}
+
+* {
+  font-family: Rubik;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #c3d4da;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #062988;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.fa-solid.fa-star {
+  color: rgb(223, 209, 19);
+}
